@@ -1,5 +1,5 @@
 import  psycopg2
-from config import host, user, password, bd_name
+from privat.conf import host, user, password, bd_name
 
 def create_db(conn):
     with conn.cursor() as cur:
@@ -88,7 +88,7 @@ def delete_client(conn, last_name):
         conn.commit() 
 #Функция, позволяющая удалить существующего клиента.
 
-def find_client(conn, first_name, last_name, email, phone):
+def find_client(conn, first_name, last_name, email, phone):  # поиск пока не победил 
     with conn.cursor() as cur:
         cur.execute("""
                     SELECT id FROM username WHERE surname=%s;
